@@ -1,20 +1,25 @@
 "use client";
-import ImageTest from "@/actions/imageTest";
-import styles from "./post.module.css";
-import { useState } from "react";
-import axios from "axios";
 import "@/globals.css";
-import createPost from "@/actions/actions";
+
+import { useState, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+import ImageTest from "@/actions/imageTest";
+import createPost from "@/actions/actions";
+import { convertBlobUrlToFile } from "@/utils/supabase";
+import { uploadImage } from "@/supabase/storage/client";
+import styles from "./post.module.css";
+
+
 export default function Post() {
-  const [file, setFile] = useState<File | null>(null);
   const { data: session, status } = useSession();
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Breakfast");
   const [content, setContent] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
   const userEmail = session?.user?.email ?? "";
 
 
@@ -24,6 +29,29 @@ export default function Post() {
     return null; // Prevent rendering the rest of the component
   }
 
+  const handleOnImageAdded = (file: File) => {
+    setFile(file);
+  };
+
+  const handleSubmitPost = async () => {
+    let _imageUrl;
+
+    if (file) {
+      const { imageUrl, error } = await uploadImage({
+        file,
+        bucket: 'benblogbucket'
+      })
+
+      if (error) {
+        console.error(error)
+        return
+      }
+
+      _imageUrl = imageUrl;
+    }
+
+    createPost(title, content, category, userEmail, _imageUrl)
+  };
 
   return (
     <div className={styles.container}>
@@ -43,11 +71,7 @@ export default function Post() {
         <option value="Dinner">Dinner</option>
         <option value="Snacks">Snacks</option>
       </select>
-      {/* <input
-        type="file"
-        onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-      /> */}
-      <ImageTest /> 
+      <ImageTest onImageAdded={handleOnImageAdded} />
       <textarea
         placeholder="Post Content"
         rows={10}
@@ -56,15 +80,13 @@ export default function Post() {
       />
       <button
         className={styles.button}
-        onClick={() =>
-          createPost(title, content, category, userEmail)
-        }
+        onClick={handleSubmitPost}
       >
         Done
       </button>
     </div>
   );
-} 
+}
 
 
 

@@ -1,6 +1,6 @@
 "use server";
 import { prisma } from "@/utils/prisma";
-export default async function createPost(title: string, content: string, category: string, userEmail: string,) {
+export default async function createPost(title: string, content: string, category: string, userEmail: string, imageUrl?: string) {
     await prisma.post.create({
         data: {
             title: title,
@@ -8,8 +8,8 @@ export default async function createPost(title: string, content: string, categor
             category: category,
             userEmail: userEmail,
             slug: title.toLowerCase().replace(/\s+/g, '-'),
-            catSlug: category.toLowerCase()
-           
+            catSlug: category.toLowerCase(),
+            img: imageUrl ? imageUrl : undefined,
         },
         
     })
