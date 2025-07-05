@@ -1,0 +1,44 @@
+.container {
+    margin-bottom: 100px;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+    
+    
+} 
+
+.imageContainer {
+    flex: 3;
+    height: 350px;
+    position: relative;
+} 
+
+.image {
+    object-fit: cover;
+    
+}
+
+
+.recipe {
+    gap: 10px;
+    display: flex;
+
+}
+
+.recipeInfo {
+    margin-right: 10px;
+    border:solid;
+    flex: 1;
+    padding: 10px;
+    
+} 
+
+.read {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+    border: solid;
+    border-radius: 5px;
+    padding: 5px;
+    border-color: red;
+}
