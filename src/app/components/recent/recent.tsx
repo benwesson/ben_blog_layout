@@ -40,11 +40,21 @@ export default async function Recent() {
                                 ? post.content.slice(0, 250) + "..."
                                 : post.content}
                             </p>
-                            {post.img && <Image className={styles.image} src={post.img} width={300} height={300} alt="Featured" />}
-                            <Link href={`/${post.id}`} className={styles.read}>Read More</Link>
+                       
+                            <div className={styles.buttons}>
+                                <Link href={`/${post.id}`} className={styles.read}>Read More</Link>
+                           
+                                <Link href={`/${post.id}`} className={styles.read}>Comment</Link>
+
+                            </div>
+                            
                             {/* <Link href={`/${post.category}`}>{post.category}</Link> */}
                             
                                    
+                        </div>
+                         <div className={styles.imageContainer}>
+                            {post.img && <Image className={styles.image} src={post.img} width={300} height={300} alt="Featured" />}
+
                         </div>
                         {/* <div className={styles.imageContainer}>
                             <Image className ={styles.image} src="/breakfast.jpg" alt="Featured" fill/>
