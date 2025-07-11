@@ -16,6 +16,7 @@ export default async function Recent() {
             content: true,
             category: true,
             createdAt: true,
+            img: true,
         },
 
     })
@@ -43,7 +44,8 @@ export default async function Recent() {
                             <Link href={`/${post.id}`} className={styles.read}>Read More</Link>       
                         </div>
                         <div className={styles.imageContainer}>
-                            <Image className ={styles.image} src="/breakfast.jpg" alt="Featured" fill />
+                            {/* <Image className ={styles.image} src="/breakfast.jpg" alt="Featured" fill /> */}
+                             {post.img && <Image className={styles.image} src={post.img} alt="Featured"  fill/>}
                         </div>
                     </div>
                 ))}
