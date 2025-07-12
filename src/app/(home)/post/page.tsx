@@ -2,11 +2,12 @@
 import "@/globals.css";
 
 import { useState, useRef } from "react";
+import { FaGoogle } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import ImageTest from "@/actions/imageTest";
-import { createPost } from "@/actions/actions";
+import { createPost, generateGeminiResponse } from "@/actions/actions";
 import { convertBlobUrlToFile } from "@/utils/supabase";
 import { uploadImage } from "@/supabase/storage/client";
 import styles from "./post.module.css";
@@ -54,6 +55,36 @@ export default function Post() {
     createPost(title, content, category, userEmail, _imageUrl)
   };
 
+  const handleAiButtonClick = async () => {
+    if (!content) {
+      return;
+    }
+
+    try {
+      const prompt = `
+        Take the following conent and improve it. 
+        The context is this is a blog post about food. 
+        Only return the improved content without any additional text. 
+        
+        Blog Post Title: ${title} do not include this in the response.
+        Category: ${category} do not include this in the response.
+
+        Content: ${content}
+      `;
+      const response = await generateGeminiResponse(prompt);
+
+      if (response) {
+        
+        setContent(response);
+      } else {
+        console.error("No response from AI");
+      }
+    } catch (error) {
+      console.error("Error generating AI response:", error);
+      return;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1>Create Post</h1>
@@ -73,12 +104,15 @@ export default function Post() {
         <option value="Snacks">Snacks</option>
       </select>
       <ImageTest onImageAdded={handleOnImageAdded} />
-      <textarea
-        placeholder="Post Content"
-        rows={10}
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-      />
+      <div className={styles.textareaContainer}>
+        <textarea className={styles.textarea}
+          placeholder="Post Content"
+          rows={10}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button className={styles.aiButton} onClick={handleAiButtonClick}><FaGoogle /></button>
+      </div>
       <button
         className={styles.button}
         onClick={handleSubmitPost}

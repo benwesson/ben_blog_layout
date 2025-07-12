@@ -1,46 +1,42 @@
+"use client";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+
 import styles from "./addComment.module.css";
 import UserProfile from "@/userProfile/userProfile";
 import { createComment } from "@/actions/actions";
-import { useSession } from "next-auth/react";
-// import { useRouter } from "next/navigation";
-async function handlePostComment(formData: FormData) {
+import getUserInfo from "@/hooks/getUserInfo";
 
-  "use server";
-  
-  const desc = formData.get("desc") as string;
-  const userEmail = formData.get("userEmail") as string;
-  const profilePic= formData.get("profilePic") as string;
-  const associatedPostId = formData.get("associatedPostId") as string;
-  await createComment(desc, associatedPostId, userEmail, profilePic);
-}
+import type { FormEvent } from "react";
+
+
 
 export default function AddComment({ associatedPostId }: { associatedPostId: string }) {
-    "use client";
+  const { email, profilePic } = getUserInfo();
+  const [desc, setDesc] = useState("");
+
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     
-    
-      
-      
-    
-    // const [userEmail, profilePic] = Poster();
-  
+    createComment(desc, associatedPostId, email, profilePic);
+  }
+
 
   return (
     <div>
-      <form action={handlePostComment}>
+      <form onSubmit={handleSubmit}>
         <div className={styles.container}>
           <textarea
             className={styles.textarea}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
             name="desc"
             placeholder="Add a comment..."
             required
           />
-
-          <input type="hidden" name="associatedPostId" value={associatedPostId} />
-          <input type="hidden" name="profilePic" value="/fruit.jpg" />
-          <input type="hidden" name="userEmail" value="benjamin@example.com" /> 
-          
-          <button className={styles.button}>Post</button>
-          <UserProfile />
+          <button type="submit" className={styles.button}>Post</button>
         </div>
       </form>
     </div>

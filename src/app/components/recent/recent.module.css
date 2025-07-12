@@ -36,10 +36,10 @@
 
 .read {
     color: white;
-    background-color: red;
+    background-color: black;
     cursor: pointer;
     border: solid;
     border-radius: 5px;
     padding: 5px;
-    border-color: red;
+    border-color: black;
 }

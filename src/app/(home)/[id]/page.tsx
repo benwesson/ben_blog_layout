@@ -18,12 +18,11 @@ type PageProps = {
 };
 
 export default async function SinglePage({ params }: PageProps) {
-    
-    
+    const { id } = await params;
 
     const post = await prisma.post.findUnique({
         where: {
-            id: params.id,
+            id,
         },
     })
     return (
@@ -35,11 +34,11 @@ export default async function SinglePage({ params }: PageProps) {
             <p>{post?.content}</p>
             <h1>Comments</h1>
             <AddComment 
-                associatedPostId={params.id}
+                associatedPostId={id}
             />
-            <Gemini />  
+            <Gemini />   
             <ShowComments
-                associatedPostId={params.id} 
+                associatedPostId={id} 
              />
 
             

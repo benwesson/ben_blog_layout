@@ -1,20 +1,34 @@
-import { GoogleGenAI } from "@google/genai";
+"use client";
+import { useState } from "react";
+import { generateGeminiResponse } from "@/actions/actions"; // Assuming you have a function to handle Gemini API calls
+export default function Gemini() {
+  const [prompt, setPrompt] = useState("");
+  const [response, setResponse] = useState("");
 
-// The client gets the API key from the environment variable `GEMINI_API_KEY`.
-const ai = new GoogleGenAI({});
-const prompt = {
-  text: "Write a short blog post about the benefits of eating fruits and vegetables.",
-  maxOutputTokens: 500,
-  temperature: 0.7,
-};
-export default async function Gemini() {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: prompt,
-  });
-  console.log(response.text);
+
+  const handleSubmit = async () => {
+    const response = await generateGeminiResponse(prompt);
+    if (response) {
+      setResponse(response);
+    } else {
+      setResponse("No response received from Gemini.");
+    }
+  };
+
   return (
-    <div><p>{response.text}</p></div>
-  )
-}
+    <div>
+      <h1>Gemini Component</h1>
+      <textarea
+        placeholder="Type your message here..."
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Send</button>
+      {!!response && <div>
+        <h2>Response:</h2>
+        <p>{response}</p>
+      </div>}
+    </div>
 
+  );
+}
