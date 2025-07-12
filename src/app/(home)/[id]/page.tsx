@@ -1,4 +1,4 @@
-"use server";
+
 import { prisma } from "@/utils/prisma"
 // import Poster from "@/components/poster/poster";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import styles from "./singlePage.module.css";
 import AddComment from "@/components/addComment/addComment";
 import ShowComments from "@/components/showComments/showComments";
 // import { useSession } from "next-auth/react";
+// import Gemini from "@/components/gemini/gemini";
 import Gemini from "@/components/gemini/gemini";
 
 
@@ -36,8 +37,10 @@ export default async function SinglePage({ params }: PageProps) {
             <AddComment 
                 associatedPostId={params.id}
             />
-            <Gemini />
-            <ShowComments associatedPostId={params.id} />
+            <Gemini />  
+            <ShowComments
+                associatedPostId={params.id} 
+             />
 
             
         </div>

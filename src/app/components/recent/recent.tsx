@@ -53,7 +53,7 @@ export default async function Recent() {
                                    
                         </div>
                          <div className={styles.imageContainer}>
-                            {post.img && <Image className={styles.image} src={post.img} width={300} height={300} alt="Featured" />}
+                            {post.img && <Image className={styles.image} src={post.img} fill alt="Featured" />}
 
                         </div>
                         {/* <div className={styles.imageContainer}>

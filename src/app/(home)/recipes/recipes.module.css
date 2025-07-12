@@ -27,7 +27,8 @@
 
 .recipeInfo {
     margin-right: 10px;
-    border:solid;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1;
     padding: 10px;
     
@@ -35,10 +36,10 @@
 
 .read {
     color: white;
-    background-color: red;
+    background-color: black;
     cursor: pointer;
     border: solid;
     border-radius: 5px;
     padding: 5px;
-    border-color: red;
+    border-color: black;
 }

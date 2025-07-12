@@ -11,13 +11,7 @@ export default async function Recent() {
             createdAt: 'desc',
         },
         take: 10, // Limit to the 5 most recent posts
-        select: {
-            id: true,
-            title: true,
-            content: true,
-            category: true,
-            createdAt: true,
-        },
+       
 
     })
 
@@ -48,15 +42,15 @@ export default async function Recent() {
                         </div>
                         <div className={styles.imageContainer}>
                             <Image className ={styles.image} src="/breakfast.jpg" alt="Featured" fill/>
+                             {post.img && <Image className={styles.image} src={post.img} fill alt="Featured" />} 
                         </div>
                     </div>
                 ))}
-            
-
-            
-    
-                
             </div>
         </>
     );
 }
+            
+    
+                
+      

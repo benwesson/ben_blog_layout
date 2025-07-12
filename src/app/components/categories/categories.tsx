@@ -29,6 +29,7 @@ export default function Categories() {
                     </div>
                     
                     <Link href={"/dinner"} className={styles.read}><h1>Dinner</h1></Link>
+                    <p></p>
             </div>
             <div className={styles.category}>
                     <div className={styles.imageContainer}>
