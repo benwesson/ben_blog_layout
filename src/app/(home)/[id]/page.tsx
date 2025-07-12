@@ -1,6 +1,14 @@
+"use server";
 import { prisma } from "@/utils/prisma"
+// import Poster from "@/components/poster/poster";
 import Image from "next/image";
-import styles from "./singlePage.module.css"; // Import your CSS module
+import styles from "./singlePage.module.css";
+import AddComment from "@/components/addComment/addComment";
+import ShowComments from "@/components/showComments/showComments";
+import { useSession } from "next-auth/react";
+
+
+
 // Define the type for params
 type PageProps = {
   params: {
@@ -9,7 +17,9 @@ type PageProps = {
 };
 
 export default async function SinglePage({ params }: PageProps) {
-   
+    
+    
+
     const post = await prisma.post.findUnique({
         where: {
             id: params.id,
@@ -22,6 +32,11 @@ export default async function SinglePage({ params }: PageProps) {
             {post?.img && <Image className={styles.image} src={post.img} width={300} height={300} alt="Featured" />}
             
             <p>{post?.content}</p>
+            <h1>Comments</h1>
+            <AddComment 
+                associatedPostId={params.id}
+            />
+            <ShowComments associatedPostId={params.id} />
         </div>
     );
 }

@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import ImageTest from "@/actions/imageTest";
-import createPost from "@/actions/actions";
+import { createPost } from "@/actions/actions";
 import { convertBlobUrlToFile } from "@/utils/supabase";
 import { uploadImage } from "@/supabase/storage/client";
 import styles from "./post.module.css";
@@ -21,6 +21,7 @@ export default function Post() {
   const [file, setFile] = useState<File | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const userEmail = session?.user?.email ?? "";
+
 
 
   // Redirect to login if not authenticated

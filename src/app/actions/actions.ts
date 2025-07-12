@@ -1,6 +1,6 @@
 "use server";
 import { prisma } from "@/utils/prisma";
-export default async function createPost(title: string, content: string, category: string, userEmail: string, imageUrl?: string) {
+export async function createPost(title: string, content: string, category: string, userEmail: string, imageUrl?: string) {
     await prisma.post.create({
         data: {
             title: title,
@@ -15,3 +15,19 @@ export default async function createPost(title: string, content: string, categor
     })
        
 }
+
+
+
+export async function createComment( desc: string, associatedPostId: string, userEmail: string, profilePic: string) {
+    await prisma.comment.create({
+        data: {
+            desc,
+            associatedPostId,
+            userEmail,
+            profilePic,
+        },
+    });
+}
+
+
+

@@ -16,7 +16,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Post           Post[]
-  Comment        Comment[]
+  
   Authenticator Authenticator[]
  
   createdAt DateTime @default(now())
@@ -95,15 +95,15 @@ model Post {
   category     String
   userEmail String 
   user      User   @relation( fields: [userEmail], references: [email])
-  comments Comment[]
+  
 } 
 
 model Comment {
   id      String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   desc    String 
-  userEmail String 
-  user      User   @relation( fields: [userEmail], references: [email])
-  postSlug String
-  post     Post   @relation( fields: [postSlug], references: [slug])
+  associatedPostId String 
+  userEmail String
+  profilePic String
+
 }
