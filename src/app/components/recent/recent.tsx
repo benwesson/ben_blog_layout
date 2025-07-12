@@ -44,7 +44,7 @@ export default async function Recent() {
                             <div className={styles.buttons}>
                                 <Link href={`/${post.id}`} className={styles.read}>Read More</Link>
                            
-                                <Link href={`/${post.id}`} className={styles.read}>Comment</Link>
+                                {/* <Link href={`/${post.id}`} className={styles.read}>Comment</Link> */}
 
                             </div>
                             
