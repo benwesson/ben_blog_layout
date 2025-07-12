@@ -12,6 +12,7 @@
     "@auth/prisma-adapter": "^2.10.0",
     "@chakra-ui/react": "^3.21.1",
     "@emotion/react": "^11.14.0",
+    "@google/genai": "^1.9.0",
     "@prisma/client": "^6.11.1",
     "@supabase/supabase-js": "^2.50.3",
     "@types/uuid": "^10.0.0",
