@@ -37,13 +37,30 @@
 }
 
 .titleText {
-  font-size: 125px;
+  font-size: 7.8125rem;
   font-weight: bold;
   color: #333;
   font-style: italic;
   margin-top: 0;
   margin-bottom: 0;
    
+}
+
+
+@media screen and (min-width: 481px) {
+    /* small tablets */
+}
+
+@media screen and (min-width: 769px) {
+    /* large tablets & small laptops */
+}
+
+@media screen and (min-width: 1025px) {
+    /* large laptops & desktop */
+}
+
+@media screen and (min-width: 1440px) {
+  /* large desktops */
 }
 
 @media screen and (max-width:1306px) {
@@ -53,16 +70,11 @@
     
 }
 
-@media screen and (max-width:1000px) {
-    .titleText {
-        font-size: 90px;
-    }
-    
-}
+
 
 @media screen and (max-width:1000px) {
-    .titleText {
-        font-size: 90px;
+    .titleText { 
+        font-size: 90px; 
     }
     
 }

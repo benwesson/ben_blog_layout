@@ -6,12 +6,8 @@
   background-color: grey;
   position: sticky;
   align-self: start;
-  width:300px;
-  
-
+  width: 300px;
 }
-
-
 
 /* @media screen and (min-width: 951px) {
   .sidebar {
@@ -19,135 +15,143 @@
   }
 } */
 
-
-
 /*Header */
 .header {
   z-index: 10;
   grid-area: header;
   top: 0;
-  position: sticky; 
+  position: sticky;
   background-color: white;
   display: flex;
   flex-direction: column;
   height: 200px;
- 
 }
 
 .titleText {
-  font-size: 125px;
+  font-size: 7.8125rem;
   font-weight: bold;
   color: #333;
   font-style: italic;
   margin-top: 0;
   margin-bottom: 0;
-   
 }
 
-@media screen and (max-width:1306px) {
-    .titleText {
-        font-size: 100px;
-    }
-    
+@media screen and (max-width: 1306px) {
+  .titleText {
+    font-size: 100px;
+  }
 }
 
-@media screen and (max-width:1000px) {
-    .titleText {
-        font-size: 90px;
-    }
-    
+@media screen and (max-width: 1000px) {
+  .titleText {
+    font-size: 90px;
+  }
 }
 
-@media screen and (max-width:1000px) {
-    .titleText {
-        font-size: 90px;
-    }
-    
+@media screen and (max-width: 1000px) {
+  .titleText {
+    font-size: 90px;
+  }
 }
 
-@media screen and (max-width:900px) {
-    .titleText {
-        font-size: 80px;
-    }
-    
+@media screen and (max-width: 900px) {
+  .titleText {
+    font-size: 80px;
+  }
 }
 
-@media screen and (max-width:800px) {
-    .titleText {
-        font-size: 60px;
-    }
-    
+@media screen and (max-width: 800px) {
+  .titleText {
+    font-size: 60px;
+  }
 }
 
-@media screen and (max-width:750px) {
-    .titleText {
-        font-size: 50px;
-    }
-    
-} 
-
-@media screen and (max-width:650px) {
-    .titleText {
-        font-size: 50px;
-    }
-    
+@media screen and (max-width: 750px) {
+  .titleText {
+    font-size: 50px;
+  }
 }
 
-
-
-
-
-
-
+@media screen and (max-width: 650px) {
+  .titleText {
+    font-size: 50px;
+  }
+}
 
 .navbar {
-  
   display: flex;
   background-color: white;
   justify-content: space-between; /* This pushes .links left and .search right */
   transition: left 0.3s;
+  align-items: center;
 }
 
 .links {
-  margin-top: 10px;
-  margin-bottom: 10px;
+
   margin-left: 5px;
   display: flex;
   gap: 20px;
   justify-content: start;
-  
-} 
+}
 
 .button {
   display: none;
 }
 
 .menuButton {
-  margin-top: 10px;
-  margin-bottom: 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 24px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
 }
 
 .search {
-  margin-top: 10px;
-  margin-bottom: 10px;
   margin-right: 5px;
   justify-content: end;
-  
+  position: relative;
 }
 
-@media screen and (max-width:950px) {
-    .links {
-        display: none;
-    }
-    .button {
-        display: block;
-    }
+.search > input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px; /* Adjust width as needed */
+}
+
+.searchMenu {
+  position: absolute;
+  top: 33px; /* Adjust based on your navbar height */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  justify-content: end;
+}
+
+.searchResult {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.searchResult:hover {
+  background-color: #f0f0f0;
+}
+
+.searchResult:active {
+  background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 950px) {
+  .links {
+    display: none;
   }
-
-
-
-
+  .button {
+    display: block;
+  }
+}

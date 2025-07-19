@@ -41,6 +41,23 @@ export async function generateGeminiResponse(prompt: string) {
     return response.text;
 }
 
+export async function searchPosts(query: string) {
+    const posts = await prisma.post.findMany({
+        where: {
+            OR: [
+                { title: { contains: query, mode: 'insensitive' } },
+                { content: { contains: query, mode: 'insensitive' } },
+                { category: { contains: query, mode: 'insensitive' } },
+            ],
+        },
+        orderBy: {
+            createdAt: 'desc',
+        },
+    });
+
+    return posts;
+}
+
 
 
 
