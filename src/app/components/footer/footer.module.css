@@ -1,52 +1,36 @@
-/*Footer */
-/* .footer {
-  
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
+.grid_container {
   margin-top: 40px;
-  grid-area: footer;
-  background-color: lightgrey;
-   grid-template-areas:
-    "listContainer"
-    "footerInfo";
-}
-
-.list {
-  display: flex;
-
-  flex-direction: column;
-  gap: 10px;
-  font-weight: 300;
-  border: solid;
-}
-
-.listContainer {
-  grid-area: listContainer;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-
-.footerContent {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  justify-content: space-between;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:15px;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 16px;
+
 }
 
-.logo {
+.card {
+  text-align: center;
+   margin-top: 20px;
+   margin-bottom: 20px;
+  
+
+}
+
+.listCard {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  text-align: center;
   gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+
 }
 
-.footerInfo {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  
-} */
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
