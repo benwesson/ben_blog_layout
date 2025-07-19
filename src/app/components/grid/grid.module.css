@@ -21,3 +21,12 @@
     border-radius: 10px;    
 }
 
+.read {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border: solid;
+    border-radius: 5px;
+    padding: 5px;
+    border-color: black;
+}

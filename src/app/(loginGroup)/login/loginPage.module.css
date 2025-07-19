@@ -20,7 +20,7 @@
     min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    /* background-image: url('/fruit_two.jpg'); */
+    background-image: url('/fruit_two.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

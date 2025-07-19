@@ -31,7 +31,7 @@ export default async function Grid() {
                     {post.img && <Image className={styles.image} src={post.img}  alt={post.title} width={300} height={300} />}
                 </div>
 
-                <h1>{post.title}</h1>
+                <p>{post.title}</p>
 
                 <p>{post.userEmail}</p>
 
