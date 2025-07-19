@@ -1,29 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Source_Sans_3 } from 'next/font/google';
-import "./container.css"
-// import "../globals.css";
-// import Header from "../components/header";
-import Featured from "../components/featured/featured";
-import Navbar from "../components/navbar/navbar"
-import Footer from "../components/footer/footer";
 import AuthProvider from "../providers/AuthProvider";
-// import { Provider } from "@/components/ui/provider"
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
+import styles from "./home.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import "../globals.css";
+import Footer from "@/components/footer/footer";
+import Navbar from "@/components/navbar/navbar";
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
   display: 'swap', // or 'fallback', 'optional', 'block'
 });
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -38,19 +27,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={sourceSans3.className} >
-      <body>
+      <body className={styles.body} >
         <AuthProvider>
-          <div className="container">
-            <Navbar />
-            <hr className="line" />
-        
-            {children}
-            <Footer />
+          <div className={styles.container}>
+              
+
+            
+            <div className={styles.header}>
+              <Navbar />
+            </div>
+
+            <div className={styles.main}>
+               {children}
+            </div>
+             
+            <Footer /> 
+
           </div>
         </AuthProvider>
-            
-        
-
       </body>
     </html>
   );
