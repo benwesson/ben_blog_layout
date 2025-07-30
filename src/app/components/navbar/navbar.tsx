@@ -71,27 +71,30 @@ export default function Navbar() {
           <p className={styles.titleText}>Ben's Eats</p>
         </div>
         <div className={styles.navbar}>
-          <div className={styles.links}>
-            <div>
-              <Link className={styles.navLink} href="/">
-                Home
-              </Link>
-            </div>
-            <div>
-              <Link className={styles.navLink} href="/recipes">
-                Recipes
-              </Link>
-            </div>
-            <div>
-              <Link className={styles.navLink} href="/post">
-                Post
-              </Link>
-            </div>
-            <div>
-              <AuthLinks />
+          <div className={styles.linkContainer}>
+            <div className={styles.links}>
+              <div>
+                <Link className={styles.navLink} href="/">
+                  Home
+                </Link>
+              </div>
+              <div>
+                <Link className={styles.navLink} href="/recipes">
+                  Recipes
+                </Link>
+              </div>
+              <div>
+                <Link className={styles.navLink} href="/post">
+                  Post
+                </Link>
+              </div>
+              <div>
+                <AuthLinks />
+              </div>
             </div>
           </div>
-          <div className={styles.button}>
+
+          <div className={styles.menuButtonContainer}>
             <button className={styles.menuButton} onClick={handleMenuClick}>
               <GiHamburgerMenu size={24} />
             </button>
