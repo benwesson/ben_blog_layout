@@ -17,20 +17,20 @@ export default function Footer() {
             />
           </div>
           <div>
-            <h1 className={styles.footerTitle}>Ben's Eats</h1>
+            <div className={styles.footerTitle}>Ben's Eats</div>
           </div>
         </div>
 
-        <p className={styles.description}>
+        <div className={styles.description}>
           Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
           faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
           pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
           tempor.
-        </p>
+        </div>
       </div>
       <div className={styles.listCard}>
         <div className={styles.list}>
-          <p>Navigation</p>
+          <div className={styles.listTitle}>Navigation</div>
 
             <div>
               <Link href="/">Home</Link>
@@ -47,7 +47,7 @@ export default function Footer() {
 
         </div>
         <div className={styles.list}>
-          <p>Categories</p>
+          <div className={styles.listTitle}>Categories</div>
 
             <div>
               <Link href="/">Breakfast</Link>
@@ -64,7 +64,7 @@ export default function Footer() {
 
         </div>
         <div className={styles.list}>
-          <p>Socials</p>
+          <div className={styles.listTitle}>Socials</div>
 
             <div>
               <Link href="/">Facebook</Link>
