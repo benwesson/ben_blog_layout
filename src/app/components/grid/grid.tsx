@@ -31,19 +31,21 @@ export default async function Grid() {
                     {post.img && <Image className={styles.image} src={post.img}  alt={post.title} width={300} height={300} />}
                 </div>
 
-                <p>{post.title}</p>
+                <div className={styles.title}>{post.title}</div>
 
-                <p>{post.userEmail}</p>
+                <div>{post.userEmail}</div>
 
-                <p>Category: {post.category}</p>
+                <div>Category: {post.category}</div>
 
-                <p>Created At: {new Date(post.createdAt).toLocaleDateString()}</p>
+                <div>Created At: {new Date(post.createdAt).toLocaleDateString()}</div>
 
-                <p>
+                <hr />
+
+                <div>
                     {post.content.length > 250
                     ? post.content.slice(0, 250) + "..."
                     : post.content}
-                </p>
+                </div>
 
                 <div className={styles.button}>
                     <Link href={`/${post.id}`} className={styles.read}>Read More</Link>

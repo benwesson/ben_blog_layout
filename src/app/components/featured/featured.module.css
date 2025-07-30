@@ -10,8 +10,8 @@
 }
 
 .card{
+    font-size: 1rem;
     text-align: start;
-    
     padding: 16px
 } 
 
@@ -21,7 +21,11 @@
 }
 
 
-
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 .image {
     width: 65%;
@@ -30,6 +34,8 @@
 } 
 
 .read {
+    display: inline-block;
+    margin-top: 10px;
     color: white;
     background-color: black;
     cursor: pointer;

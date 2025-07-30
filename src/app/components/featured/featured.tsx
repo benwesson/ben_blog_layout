@@ -17,6 +17,7 @@ export default async function Recent() {
       category: true,
       createdAt: true,
       img: true,
+      userEmail: true,
     },
   });
 
@@ -41,15 +42,16 @@ export default async function Recent() {
               )}
             </div>
             <div key={post.id} className={styles.card}>
-              <h2>{post.title}</h2>
-
-              <p>Category: {post.category}</p>
-              <p>Created At: {new Date(post.createdAt).toLocaleDateString()}</p>
-              <p>
+              <div className={styles.title}>{post.title}</div>
+              <div>{post.userEmail}</div>
+              <div>Category: {post.category}</div>
+              <div>Created At: {new Date(post.createdAt).toLocaleDateString()}</div>
+              <hr />
+              <div>
                 {post.content.length > 750
                   ? post.content.slice(0, 750) + "..."
                   : post.content}
-              </p>
+              </div>
               <Link href={`/${post.id}`} className={styles.read}>
                 Read More
               </Link>

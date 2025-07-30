@@ -6,6 +6,7 @@
 }
 
 .card {
+  font-size: 1rem;
   background: #f0f0f0;
   padding: 16px;
   border: 1px solid #ddd;
@@ -21,6 +22,8 @@
 }
 
 .read {
+  display: inline-block;
+  margin-top: 10px;
   color: white;
   background-color: black;
   cursor: pointer;
@@ -28,4 +31,10 @@
   border-radius: 5px;
   padding: 5px;
   border-color: black;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
