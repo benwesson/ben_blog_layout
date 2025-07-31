@@ -30,59 +30,12 @@
   margin-bottom: 0;
 }
 
-
-@media screen and (min-width: 481px) {
-    /* small tablets */
+.linkContainer {
+  display: none; /* Hidden by default (mobile) */
 }
 
 
 
-@media screen and (min-width: 769px) {
-    /* large tablets & small laptops */
-    .titleText {
-        font-size: 4rem;
-    }
-    .header {
-        height: 150px;
-    }
-   
-}
-
-/* Show on tablet/desktop */
-/* Hide hamburger menu on desktop */
-@media screen and (min-width: 850px) {
-  .linkContainer {
-    display: block; 
-  }
-  .menuButton {
-    display: none; 
-  }
-}
-
-
-@media screen and (min-width: 1025px) {
-    /* large laptops & desktop */
-    .titleText {
-        font-size: 6rem;
-    }
-    .header {
-        height: 200px;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-  /* large desktops */
-  .titleText { 
-        font-size: 7rem; 
-    }
-}
-
-@media screen and (min-width:1306px) {
-    .titleText {
-        font-size: 7.5rem;
-    }
-    
-}
 
 
 
@@ -152,11 +105,59 @@
   background-color: #e0e0e0;
 }
 
-.linkContainer {
-  display: none; /* Hidden by default (mobile) */
+
+@media screen and (min-width: 481px) {
+    /* small tablets */
 }
 
 
+
+@media screen and (min-width: 769px) {
+    /* large tablets & small laptops */
+    .titleText {
+        font-size: 4rem;
+    }
+    .header {
+        height: 150px;
+    }
+   
+}
+
+/* Show on tablet/desktop */
+/* Hide hamburger menu on desktop */
+@media screen and (min-width: 850px) {
+  .linkContainer {
+    display: block; 
+  }
+  .menuButton {
+    display: none; 
+  }
+}
+
+
+@media screen and (min-width: 1025px) {
+    /* large laptops & desktop */
+    .titleText {
+        font-size: 6rem;
+    }
+    .header {
+        height: 200px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+  /* large desktops */
+  .titleText { 
+        font-size: 7rem; 
+    }
+}
+
+@media screen and (min-width:1306px) {
+    .titleText {
+        font-size: 7.5rem;
+    }
+    
+}
 
 
 
