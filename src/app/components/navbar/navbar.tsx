@@ -6,6 +6,7 @@ import AuthLinks from "../authLinks/authLinks";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { searchPosts } from "@/actions/actions";
 import { useDebounce } from "@/hooks/useDebounce";
+import { IoCloseOutline } from "react-icons/io5";
 
 interface SearchResult {
   id: string;
@@ -63,6 +64,22 @@ export default function Navbar() {
     setSearchQuery(query);
     debouncedSearch(query);
   };
+
+  // Reset menu state when screen becomes large
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 850) {
+        setMenuOpen(false); // Close the sidebar when screen is large
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Also check on initial load
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -136,11 +153,12 @@ export default function Navbar() {
             className={styles.sidebar}
             style={{ display: menuOpen ? "block" : "none" }}
           >
-            <button className={styles.close} onClick={handleMenuClick}>
-              Close
-            </button>
+            
 
             <div className={styles.sidebarLinks}>
+                <div className={styles.close} onClick={handleMenuClick}>
+                  <IoCloseOutline size={32} />
+              </div>
               <div>
                 <Link className={styles.navLink} href="/">
                   Home

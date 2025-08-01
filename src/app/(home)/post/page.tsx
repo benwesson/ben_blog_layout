@@ -87,7 +87,7 @@ export default function Post() {
 
   return (
     <div className={styles.container}>
-      <h1>Create Post</h1>
+      <div className={styles.title}>Create Post</div>
       <input
         type="text"
         placeholder="Post Title"
