@@ -36,13 +36,13 @@ export default function Footer() {
               <Link href="/">Home</Link>
             </div>
             <div>
-              <Link href="/about">Recipes</Link>
+              <Link href="/recipes">Recipes</Link>
             </div>
             <div>
-              <Link href="/contact">Post</Link>
+              <Link href="/post">Post</Link>
             </div>
             <div>
-              <Link href="/contact">Login</Link>
+              <Link href="/login">Login</Link>
             </div>
 
         </div>
@@ -50,16 +50,16 @@ export default function Footer() {
           <div className={styles.listTitle}>Categories</div>
 
             <div>
-              <Link href="/">Breakfast</Link>
+              <Link href="/breakfast">Breakfast</Link>
             </div>
             <div>
-              <Link href="/about">Lunch</Link>
+              <Link href="/lunch">Lunch</Link>
             </div>
             <div>
-              <Link href="/contact">Dinner</Link>
+              <Link href="/dinner">Dinner</Link>
             </div>
             <div>
-              <Link href="/contact">Snacks</Link>
+              <Link href="/snacks">Snacks</Link>
             </div>
 
         </div>
@@ -70,13 +70,13 @@ export default function Footer() {
               <Link href="/">Facebook</Link>
             </div>
             <div>
-              <Link href="/about">Twitter</Link>
+              <Link href="/">Twitter</Link>
             </div>
             <div>
-              <Link href="/contact">Instagram</Link>
+              <Link href="/">Instagram</Link>
             </div>
             <div>
-              <Link href="/contact">LinkedIn</Link>
+              <Link href="/">LinkedIn</Link>
             </div>
 
         </div>
