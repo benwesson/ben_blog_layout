@@ -23,7 +23,7 @@ export default async function Recent() {
 
   return (
     <>
-      <h1>Featured Recipe</h1>
+      <div className={styles.featuredTitle}>Featured Recipe</div>
       
         {posts.map((post) => (
 

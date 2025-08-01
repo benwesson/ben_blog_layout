@@ -37,4 +37,10 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
+} 
+
+.gridTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }

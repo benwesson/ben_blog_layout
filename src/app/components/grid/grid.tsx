@@ -23,40 +23,46 @@ export default async function Grid() {
     })
 
   return (
-    <div className={styles.container}>
-        {posts.map((post) =>(
-            <div className={styles.card} key={post.id}>
+    <>
+    
+        <div className={styles.gridTitle}>
+            Recent Posts
+        </div>
+        <div className={styles.container}>
+            {posts.map((post) =>(
+                <div className={styles.card} key={post.id}>
 
-                <div className={styles.imageContainer}>
-                    {post.img && <Image className={styles.image} src={post.img}  alt={post.title} width={300} height={300} />}
+                    <div className={styles.imageContainer}>
+                        {post.img && <Image className={styles.image} src={post.img}  alt={post.title} width={300} height={300} />}
+                    </div>
+
+                    <div className={styles.title}>{post.title}</div>
+
+                    <div>{post.userEmail}</div>
+
+                    <div>Category: {post.category}</div>
+
+                    <div>Created At: {new Date(post.createdAt).toLocaleDateString()}</div>
+
+                    <hr />
+
+                    <div>
+                        {post.content.length > 250
+                        ? post.content.slice(0, 250) + "..."
+                        : post.content}
+                    </div>
+
+                    <div className={styles.button}>
+                        <Link href={`/${post.id}`} className={styles.read}>Read More</Link>
+                    </div>
+
                 </div>
 
-                <div className={styles.title}>{post.title}</div>
-
-                <div>{post.userEmail}</div>
-
-                <div>Category: {post.category}</div>
-
-                <div>Created At: {new Date(post.createdAt).toLocaleDateString()}</div>
-
-                <hr />
-
-                <div>
-                    {post.content.length > 250
-                    ? post.content.slice(0, 250) + "..."
-                    : post.content}
-                </div>
-
-                <div className={styles.button}>
-                    <Link href={`/${post.id}`} className={styles.read}>Read More</Link>
-                </div>
-
-            </div>
-
-        ))}
+            ))}
+            
         
-      
-      
-    </div>
+        
+        </div>
+    </>
   );
 }

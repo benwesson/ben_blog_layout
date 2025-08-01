@@ -43,4 +43,10 @@
     border-radius: 5px;
     padding: 5px;
     border-color: black;
+} 
+
+.featuredTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
