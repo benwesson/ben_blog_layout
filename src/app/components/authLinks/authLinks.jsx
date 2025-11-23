@@ -15,8 +15,8 @@ const { status } = useSession();
                     <Link href="/login">Login</Link>
                 ) : (
                     <>
-                        
-                        <span  onClick={() => signOut()}>Logout</span>
+
+                        <div onClick={() => signOut()}>Logout</div>
                     </>
                 )}
             </div>

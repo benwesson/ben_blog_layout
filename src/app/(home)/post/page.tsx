@@ -41,7 +41,7 @@ export default function Post() {
     if (file) {
       const { imageUrl, error } = await uploadImage({
         file,
-        bucket: 'benblogbucket'
+        bucket: 'FoodBlogPictures'
       })
 
       if (error) {

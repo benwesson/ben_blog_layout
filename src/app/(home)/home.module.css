@@ -32,7 +32,6 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  
   z-index: 100; /* Add this to ensure it stays on top */
 }
 

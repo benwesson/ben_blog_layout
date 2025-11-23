@@ -9,7 +9,7 @@ export default async function Grid() {
         orderBy: {
             createdAt: 'desc',
         },
-        take: 12, // Limit to the 5 most recent posts
+        take: 12, 
         select: {
             id: true,
             title: true,

@@ -15,7 +15,7 @@ export default async function Grid() {
         take: 12, // Limit to the 5 most recent posts
         select: {
             id: true,
-            title: true,
+            title: true,  
             content: true,
             category: true,
             createdAt: true,
