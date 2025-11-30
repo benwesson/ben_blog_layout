@@ -10,7 +10,7 @@ import ImageTest from "@/actions/imageTest";
 import { createPost, generateGeminiResponse } from "@/actions/actions";
 import { convertBlobUrlToFile } from "@/utils/supabase";
 import { uploadImage } from "@/supabase/storage/client";
-import styles from "./post.module.css";
+import styles from "./createpost.module.css";
 
 
 export default function Post() {

@@ -54,6 +54,29 @@ export async function getPostsByCategory(category: string) {
 	return posts;
 }
 
+export async function getPostsByID(id: string) {
+	const posts = await prisma.post.findMany({
+		where: {
+			id: id,
+		},
+		orderBy: {
+			createdAt: "desc",
+		},
+		take: 12,
+		select: {
+			id: true,
+			title: true,
+			content: true,
+			category: true,
+			createdAt: true,
+			img: true,
+			userEmail: true,
+		},
+	});
+
+	return posts;
+}
+
 
 
 export async function createPost(

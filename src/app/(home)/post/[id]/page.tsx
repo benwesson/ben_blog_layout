@@ -1,47 +1,46 @@
-
-import { prisma } from "@/utils/prisma"
+import { prisma } from "@/utils/prisma";
 // import Poster from "@/components/poster/poster";
 import Image from "next/image";
-import styles from "./singlePage.module.css";
+import styles from "./post.module.css";
 import AddComment from "@/components/addComment/addComment";
 import ShowComments from "@/components/showComments/showComments";
-// import { useSession } from "next-auth/react";
-// import Gemini from "@/components/gemini/gemini";
-import Gemini from "@/components/gemini/gemini";
-
+import { getPostsByID, Post } from "@/actions/actions";
 
 // Define the type for params
 type PageProps = {
-  params: {
-    id: string;
-  };
+	params: {
+		id: string;
+	};
 };
 
 export default async function SinglePage({ params }: PageProps) {
-    const { id } = await params;
+	const { id } = await params;
 
-    const post = await prisma.post.findUnique({
-        where: {
-            id,
-        },
-    })
-    return (
-        <div> 
-            <h2>{post?.title}</h2>
-            <p>Category: {post?.category}</p>
-            {post?.img && <Image className={styles.image} src={post.img} width={300} height={300} alt="Featured" />}
-            
-            <p>{post?.content}</p>
-            <h1>Comments</h1>
-            <AddComment 
-                associatedPostId={id}
-            />
-            <Gemini />   
-            <ShowComments
-                associatedPostId={id} 
-             />
+	const posts: Post = await getPostsByID(id);
+	const [post] = posts;
 
-            
-        </div>
-    );
+	return (
+		<div className={styles.container} aria-label={`Recipe details for ${post?.title}`}>
+			{post?.img && (
+				<Image
+					className={styles.image}
+					src={post.img}
+					width={500}
+					height={500}
+					alt="Featured"
+				/>
+			)}
+			<h1 className={styles.title}>{post?.title}</h1>
+			<p>Author: {post.userEmail}</p>
+			<p>Category: {post?.category}</p>
+			<p>Created At: {new Date(post.createdAt).toLocaleDateString()}</p>
+			
+
+			<p>{post?.content}</p>
+			<h1>Comments</h1>
+			<AddComment associatedPostId={id} />
+
+			<ShowComments associatedPostId={id} />
+		</div>
+	);
 }
