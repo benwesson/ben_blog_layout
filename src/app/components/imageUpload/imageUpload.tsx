@@ -1,8 +1,8 @@
 "use client";
-import { ChangeEvent, useRef, useState, useTransition } from "react";
-import Image from "next/image";
+import { ChangeEvent, useRef, useState } from "react";
+import styles from "./imageUpload.module.css";	
 
-export default function ImageTest({ onImageAdded }: { onImageAdded?: (file: File) => void }) {
+export default function ImageUpload({ onImageAdded }: { onImageAdded?: (file: File) => void }) {
   const [image, setImage] = useState<string>("");
   const imageInputRef = useRef<HTMLInputElement>(null);
 
@@ -16,7 +16,7 @@ export default function ImageTest({ onImageAdded }: { onImageAdded?: (file: File
   return (
     <>
       <input type="file" ref={imageInputRef} hidden onChange={handleImageChange} accept="image/*" required/>
-      <button onClick={() => imageInputRef.current?.click()}>Select Image</button>
+      <button className={styles.button} onClick={() => imageInputRef.current?.click()}>Upload Image +</button>
       {image && <img src={image} width={300} />}
     </>
   )

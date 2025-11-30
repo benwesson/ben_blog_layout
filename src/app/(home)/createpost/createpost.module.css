@@ -1,51 +1,76 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-} 
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 1.5rem;
+}
+.inputRow {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	margin-bottom: 20px;
+	align-items: center;
+	flex-wrap: wrap;
+	
+}
+.titleInput {
+	width: 40%;
+	padding: 10px;
+	font-size: 1.5rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	
+}
 
+.select {
+	width: fit-content;
+	padding: 10px;
+	font-size: 1.25rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
 .button {
-    padding: 16px 20px;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    font-weight:bold;
-    cursor: pointer;
-    width:25%;
+	width: fit-content;
+	padding: 16px 20px;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	
 }
 
 .textareaContainer {
-    position: relative;
-    width: 100%;
-    
-    .textarea {
-        width: 100%;
-        z-index: 0;
-        box-sizing: border-box;
-        resize: vertical;
-        padding-right: 50px
-    }
+	position: relative;
+	width: 100%;
+
+	.textarea {
+		border: 1px solid #ccc;
+		font-size: 1.25rem;
+		border-radius: 5px;
+		width: 100%;
+		z-index: 0;
+		box-sizing: border-box;
+		resize: vertical;
+		padding-right: 50px;
+	}
 }
 
 .aiButton {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    z-index: 1;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 1;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
 }
- 
 
 .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+	font-size: 3rem;
+	font-weight: bold;
+	margin-bottom: 20px;
 }
-
-
-

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const useDebounce = <T extends (...args: any[]) => void>(callback: T, delay: number) => {
+export const useDebounce = <T extends (...args: string[]) => void>(callback: T, delay: number) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   return (...args: Parameters<T>) => {

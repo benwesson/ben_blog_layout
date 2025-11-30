@@ -1,5 +1,4 @@
-import { prisma } from "@/utils/prisma";
-// import Poster from "@/components/poster/poster";
+
 import Image from "next/image";
 import styles from "./post.module.css";
 import AddComment from "@/components/addComment/addComment";
