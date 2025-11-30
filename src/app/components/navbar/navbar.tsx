@@ -1,159 +1,99 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import AuthLinks from "../authLinks/authLinks";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { searchPosts } from "@/actions/actions";
-import { useDebounce } from "@/hooks/useDebounce";
-import { IoCloseOutline } from "react-icons/io5";
+
 import Search from "../search/search";
 
-interface SearchResult {
-  id: string;
-  title: string;
-}
-
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-  const searchMenuRef = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  if (menuOpen) {
-  } else {
-  }
+	function toggleHamburgerMenu() {
+		setIsMenuOpen((prev) => !prev);
+	}
 
-  useEffect(() => {
-    function handleClickAway(event: MouseEvent) {
-      if (
-        searchMenuRef.current &&
-        !searchMenuRef.current.contains(event.target as Node)
-      ) {
-        setSearchQuery("");
-        setSearchResults([]);
-      }
-    }
+	// Reset menu state when screen becomes large
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth >= 850) {
+				setIsMenuOpen(false); // Close the sidebar when screen is large
+			}
+		};
 
-    if (searchQuery) {
-      document.addEventListener("mousedown", handleClickAway);
-    }
+		window.addEventListener("resize", handleResize);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickAway);
-    };
-  }, [searchQuery]);
+		// Also check on initial load
+		handleResize();
 
-  const handleMenuClick = () => {
-    setMenuOpen((prev) => !prev);
-  };
+		return () => window.removeEventListener("resize", handleResize);
+	}, [isMenuOpen]);
 
-  const debouncedSearch = useDebounce(async (query: string) => {
-    if (query) {
-      setLoading(true);
-      const results = await searchPosts(query);
-      setLoading(false);
-      setSearchResults(results);
-      console.log("Search Results:", results);
-    }
-  }, 500);
+	const menuClass = isMenuOpen ? styles.hamburgerMenu + " " + styles.menuChange : styles.hamburgerMenu;
+	const buttonClass = isMenuOpen ? styles.hamburgerButton + " " + styles.buttonChange : styles.hamburgerButton;
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const query = event.target.value;
-    setSearchQuery(query);
-    debouncedSearch(query);
-  };
+	return (
+		<>
+			<div className={styles.header}>
+				<div className={styles.title}>
+					<p className={styles.titleText}>Ben's Eats</p>
+				</div>
+				<div className={styles.navbar}>
+					<div className={styles.linkContainer}>
+						<div className={styles.links}>
+							<div>
+								<Link className={styles.navLink} href="/">
+									Home
+								</Link>
+							</div>
+							<div>
+								<Link
+									className={styles.navLink}
+									href="/recipes"
+								>
+									Recipes
+								</Link>
+							</div>
+							<div>
+								<Link className={styles.navLink} href="/post">
+									Post
+								</Link>
+							</div>
+							<div>
+								<AuthLinks />
+							</div>
+						</div>
+					</div>
+					<div
+						className={buttonClass}
+						onClick={toggleHamburgerMenu}
+						aria-expanded={isMenuOpen}
+					>
+						<div className={styles.bar1}></div>
+						<div className={styles.bar2}></div>
+						<div className={styles.bar3}></div>
+					</div>
 
-  // Reset menu state when screen becomes large
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 850) {
-        setMenuOpen(false); // Close the sidebar when screen is large
-      }
-    };
+					<Search />
+				</div>
 
-    window.addEventListener("resize", handleResize);
+				<div>
+					<div className={menuClass}>
+						<Link href="/">
+							Home
+						</Link>
 
-    // Also check on initial load
-    handleResize();
+						<Link  href="/recipes">
+							Recipes
+						</Link>
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return (
-    <>
-      <div className={styles.header}>
-        <div className={styles.title}>
-          <p className={styles.titleText}>Ben's Eats</p>
-        </div>
-        <div className={styles.navbar}>
-          <div className={styles.linkContainer}>
-            <div className={styles.links}>
-              <div>
-                <Link className={styles.navLink} href="/">
-                  Home
-                </Link>
-              </div>
-              <div>
-                <Link className={styles.navLink} href="/recipes">
-                  Recipes
-                </Link>
-              </div>
-              <div>
-                <Link className={styles.navLink} href="/post">
-                  Post
-                </Link>
-              </div>
-              <div>
-                <AuthLinks />
-              </div>
-			
-            </div>
-          </div>
-
-          <div className={styles.menuButtonContainer}>
-            <button className={styles.menuButton} onClick={handleMenuClick}>
-              <GiHamburgerMenu size={24} />
-            </button>
-          </div>
-          <Search />
-        </div>
-
-        <div>
-          <div
-            className={styles.sidebar}
-            style={{ display: menuOpen ? "block" : "none" }}
-          >
-            
-
-            <div className={styles.sidebarLinks}>
-                <div className={styles.close} onClick={handleMenuClick}>
-                  <IoCloseOutline size={32} />
-              </div>
-              <div>
-                <Link className={styles.navLink} href="/">
-                  Home
-                </Link>
-              </div>
-              <div>
-                <Link className={styles.navLink} href="/recipes">
-                  Recipes
-                </Link>
-              </div>
-              <div>
-                <Link className={styles.navLink} href="/post">
-                  Post
-                </Link>
-              </div>
-              <div>
-                <AuthLinks />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+						<Link  href="/post">
+							Post
+						</Link>
+						<AuthLinks />
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }
