@@ -7,25 +7,18 @@ export default function Footer() {
       <div className={styles.card}>
         <div className={styles.logoContainer}>
           
-          <div>
-            <Image
-              className={styles.logo}
-              width={100}
-              height={100}
-              src="/rabbit.jpg"
-              alt="Logo"
-            />
+          <div className={styles.logo}>
+            B
           </div>
           <div>
-            <div className={styles.footerTitle}>Ben's Eats</div>
+            <div className={styles.footerTitle}>{"Ben's Eats"}</div>
           </div>
         </div>
 
         <div className={styles.description}>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-          faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-          pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-          tempor.
+          A blog dedicated to sharing delicious recipes and culinary
+		  adventures from around the world. Join us on a gastronomic journey as we
+		  explore flavors, techniques, and stories behind every dish.
         </div>
       </div>
       <div className={styles.listCard}>
