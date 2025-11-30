@@ -37,6 +37,7 @@ export default function Navbar() {
 			<div className={styles.header}>
 				<div className={styles.title}>
 					<p className={styles.titleText}>Ben's Eats</p>
+					
 				</div>
 				<div className={styles.navbar}>
 					<div className={styles.linkContainer}>
@@ -63,7 +64,9 @@ export default function Navbar() {
 								<AuthLinks />
 							</div>
 						</div>
+
 					</div>
+					
 					<div
 						className={buttonClass}
 						onClick={toggleHamburgerMenu}
@@ -76,6 +79,7 @@ export default function Navbar() {
 
 					<Search />
 				</div>
+			
 
 				<div>
 					<div className={menuClass}>
@@ -94,6 +98,7 @@ export default function Navbar() {
 					</div>
 				</div>
 			</div>
+		
 		</>
 	);
 }

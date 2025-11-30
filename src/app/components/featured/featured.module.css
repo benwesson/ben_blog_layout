@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     justify-content: center;
+	
     margin-bottom: 20px;
  	border-radius: 4px; 
 	gap: 16px;
@@ -44,6 +45,7 @@
 }
 
 .featuredTitle {
+	margin-top: 20px;
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 20px;
