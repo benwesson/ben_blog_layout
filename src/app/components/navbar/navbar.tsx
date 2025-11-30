@@ -29,21 +29,35 @@ export default function Navbar() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, [isMenuOpen]);
 
-	const menuClass = isMenuOpen ? styles.hamburgerMenu + " " + styles.menuChange : styles.hamburgerMenu;
-	const buttonClass = isMenuOpen ? styles.hamburgerButton + " " + styles.buttonChange : styles.hamburgerButton;
+	const menuClass = isMenuOpen
+		? styles.hamburgerMenu + " " + styles.menuChange
+		: styles.hamburgerMenu;
+	const buttonClass = isMenuOpen
+		? styles.hamburgerButton + " " + styles.buttonChange
+		: styles.hamburgerButton;
 
 	return (
 		<>
-			<div className={styles.header}>
-				<div className={styles.title}>
-					<p className={styles.titleText}>Ben's Eats</p>
-					
-				</div>
-				<div className={styles.navbar}>
+			<nav className={styles.header} aria-label="Site navigation Bar">
+				<p
+					className={styles.titleText}
+					aria-label="Page Title: Ben's Eats"
+				>
+					{"Ben's Eats"}
+				</p>
+
+				<div
+					className={styles.navbar}
+					aria-label="Primary navigation links"
+				>
 					<div className={styles.linkContainer}>
 						<div className={styles.links}>
 							<div>
-								<Link className={styles.navLink} href="/">
+								<Link
+									className={styles.navLink}
+									href="/"
+									aria-label="Go to home page"
+								>
 									Home
 								</Link>
 							</div>
@@ -51,54 +65,78 @@ export default function Navbar() {
 								<Link
 									className={styles.navLink}
 									href="/recipes"
+									aria-label="Browse all recipes"
 								>
 									Recipes
 								</Link>
 							</div>
 							<div>
-								<Link className={styles.navLink} href="/post">
+								<Link
+									className={styles.navLink}
+									href="/post"
+									aria-label="Create a new post"
+								>
 									Post
 								</Link>
 							</div>
-							<div>
+							<div aria-label="Authentication links">
 								<AuthLinks />
 							</div>
 						</div>
-
 					</div>
-					
+
 					<div
 						className={buttonClass}
 						onClick={toggleHamburgerMenu}
 						aria-expanded={isMenuOpen}
+						aria-controls="mobile-navigation"
+						role="button"
+						tabIndex={0}
+						aria-label={
+							isMenuOpen
+								? "Close navigation menu"
+								: "Open navigation menu"
+						}
 					>
 						<div className={styles.bar1}></div>
 						<div className={styles.bar2}></div>
 						<div className={styles.bar3}></div>
 					</div>
 
-					<Search />
+					<Search aria-label="Search site content" />
 				</div>
-			
 
-				<div>
-					<div className={menuClass}>
-						<Link href="/">
-							Home
-						</Link>
+				<div
+					className={menuClass}
+					id="mobile-navigation"
+					aria-label="Mobile navigation links"
+					aria-hidden={!isMenuOpen}
+				>
+					<Link
+						href="/"
+						aria-label="Go to home page from mobile menu"
+					>
+						Home
+					</Link>
 
-						<Link  href="/recipes">
-							Recipes
-						</Link>
+					<Link
+						href="/recipes"
+						aria-label="Browse all recipes from mobile menu"
+					>
+						Recipes
+					</Link>
 
-						<Link  href="/post">
-							Post
-						</Link>
+					<Link
+						href="/post"
+						aria-label="Create a new post from mobile menu"
+					>
+						Post
+					</Link>
+					<div aria-label="Authentication links in mobile menu">
 						<AuthLinks />
 					</div>
 				</div>
-			</div>
-		
+			</nav>
 		</>
 	);
 }

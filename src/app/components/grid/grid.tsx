@@ -7,15 +7,27 @@ export default async function Grid({ posts }: { posts: Post }) {
 	return (
 		<>
 			<div className={styles.gridTitle}>Recent Posts</div>
-			<div className={styles.container}>
+			<div
+				className={styles.container}
+				role="list"
+				aria-label="Recent recipe posts"
+			>
 				{posts.map((post) => (
-					<div className={styles.card} key={post.id}>
-						<Link href={`/${post.id}`}>
+					<div
+						className={styles.card}
+						key={post.id}
+						role="listitem"
+						aria-label={`Recipe card for ${post.title}`}
+					>
+						<Link
+							href={`/${post.id}`}
+							aria-label={`View recipe details for ${post.title}`}
+						>
 							{post.img && (
 								<Image
 									className={styles.image}
 									src={post.img}
-									alt={post.title}
+									alt={`${post.title} dish`}
 									width={300}
 									height={300}
 								/>
@@ -45,6 +57,7 @@ export default async function Grid({ posts }: { posts: Post }) {
 							<Link
 								href={`/${post.id}`}
 								className={styles.recipeButton}
+								aria-label={`Open full recipe for ${post.title}`}
 							>
 								Recipe
 							</Link>
