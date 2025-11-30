@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { searchPosts } from "@/actions/actions";
 import { useDebounce } from "@/hooks/useDebounce";
 import { IoCloseOutline } from "react-icons/io5";
+import Search from "../search/search";
 
 interface SearchResult {
   id: string;
@@ -108,6 +109,7 @@ export default function Navbar() {
               <div>
                 <AuthLinks />
               </div>
+			
             </div>
           </div>
 
@@ -116,36 +118,7 @@ export default function Navbar() {
               <GiHamburgerMenu size={24} />
             </button>
           </div>
-          <div className={styles.search}>
-            <input
-              className={styles.searchInput}
-              type="text"
-              placeholder="Search..."
-              onChange={handleSearch}
-              value={searchQuery}
-            />
-            {searchQuery && (
-              <div ref={searchMenuRef} className={styles.searchMenu}>
-                <div className={styles.searchResults}>
-                  {searchResults.length > 0 ? (
-                    searchResults.map((post) => (
-                      <Link
-                        className={styles.searchResult}
-                        key={post.id}
-                        href={`/${post.id}`}
-                      >
-                        {post.title}
-                      </Link>
-                    ))
-                  ) : (
-                    <span className={styles.searchResult}>
-                      No results found.
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
+          <Search />
         </div>
 
         <div>
