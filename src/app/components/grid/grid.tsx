@@ -2,7 +2,9 @@ import styles from "./grid.module.css";
 
 import Link from "next/link";
 import Image from "next/image";
-import { Post } from "@/actions/actions";
+
+import type { Post } from "@/actions/actions";
+
 export default async function Grid({ posts }: { posts: Post }) {
 	return (
 		<>

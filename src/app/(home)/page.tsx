@@ -2,7 +2,8 @@ import Categories from "@/components/categories/categories";
 import Grid from "../components/grid/grid";
 import Featured from "@/components/featured/featured";
 import { getRecentPosts } from "@/actions/actions";
-import { Post } from "@/actions/actions";
+
+import type { Post } from "@/actions/actions";
 
 export default async function Home() {
 	const posts = await getRecentPosts();

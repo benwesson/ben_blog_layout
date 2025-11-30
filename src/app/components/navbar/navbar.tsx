@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import AuthLinks from "../authLinks/authLinks";
@@ -28,13 +29,6 @@ export default function Navbar() {
 
 		return () => window.removeEventListener("resize", handleResize);
 	}, [isMenuOpen]);
-
-	const menuClass = isMenuOpen
-		? styles.hamburgerMenu + " " + styles.menuChange
-		: styles.hamburgerMenu;
-	const buttonClass = isMenuOpen
-		? styles.hamburgerButton + " " + styles.buttonChange
-		: styles.hamburgerButton;
 
 	return (
 		<>
@@ -86,7 +80,9 @@ export default function Navbar() {
 					</div>
 
 					<div
-						className={buttonClass}
+						className={clsx(styles.hamburgerButton, {
+							[styles.buttonChange]: isMenuOpen,
+						})}
 						onClick={toggleHamburgerMenu}
 						aria-expanded={isMenuOpen}
 						aria-controls="mobile-navigation"
@@ -107,7 +103,9 @@ export default function Navbar() {
 				</div>
 
 				<div
-					className={menuClass}
+					className={clsx(styles.hamburgerMenu, {
+						[styles.menuChange]: isMenuOpen,
+					})}
 					id="mobile-navigation"
 					aria-label="Mobile navigation links"
 					aria-hidden={!isMenuOpen}
