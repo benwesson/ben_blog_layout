@@ -55,7 +55,7 @@ export default async function Grid({ posts }: { posts: Post }) {
 
 						<div className={styles.button}>
 							<Link
-								href={`/${post.id}`}
+								href={`/post/${post.id}`}
 								className={styles.recipeButton}
 								aria-label={`Open full recipe for ${post.title}`}
 							>

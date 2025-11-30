@@ -56,7 +56,7 @@ export default async function Featured({ posts }: { posts: Post }) {
                     </div>
 
                     <Link
-                        href={`/${featuredPost.id}`}
+                        href={`/post/${featuredPost.id}`}
                         className={styles.read}
                         aria-label={`Read full recipe for ${featuredPost.title}`}
                     >

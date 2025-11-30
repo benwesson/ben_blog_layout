@@ -10,7 +10,7 @@ export default function Categories() {
       <div className={styles.container}>
         <div className={styles.category}>
             
-        <Link href={"/breakfast"} >
+        <Link href={"/category/Breakfast"} >
           <div>
           <Image
             className={styles.image}
@@ -25,7 +25,7 @@ export default function Categories() {
         </div>
 
         <div className={styles.category}>
-        <Link href={"/lunch"} >
+        <Link href={"/category/Lunch"} >
           <div>
           <Image
             className={styles.image}
@@ -40,7 +40,7 @@ export default function Categories() {
         </div>
 
         <div className={styles.category}>
-        <Link href={"/dinner"} >
+        <Link href={"/category/Dinner"} >
           <div>
           <Image
             className={styles.image}
@@ -55,7 +55,7 @@ export default function Categories() {
         </div>
 
         <div className={styles.category}>
-        <Link href={"/snacks"} >
+        <Link href={"/category/Snacks"} >
           <div>
           <Image
             className={styles.image}

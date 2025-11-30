@@ -31,6 +31,31 @@ export type Post = {
 	userEmail: string;
 }[];
 
+export async function getPostsByCategory(category: string) {
+	const posts = await prisma.post.findMany({
+		where: {
+			category: category,
+		},
+		orderBy: {
+			createdAt: "desc",
+		},
+		take: 12,
+		select: {
+			id: true,
+			title: true,
+			content: true,
+			category: true,
+			createdAt: true,
+			img: true,
+			userEmail: true,
+		},
+	});
+
+	return posts;
+}
+
+
+
 export async function createPost(
 	title: string,
 	content: string,

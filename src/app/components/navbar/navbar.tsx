@@ -73,7 +73,7 @@ export default function Navbar() {
 							<div>
 								<Link
 									className={styles.navLink}
-									href="/post"
+									href="/createpost"
 									aria-label="Create a new post"
 								>
 									Post
