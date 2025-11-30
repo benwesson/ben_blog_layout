@@ -1,46 +1,50 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-  justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 16px;
+	justify-content: center;
 }
 
 .card {
-  font-size: 1rem;
-  background: #f0f0f0;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-align: left;
-  /* border: solid; */
+	font-size: 1rem;
+	border-radius: 4px;
+	text-align: left;
+	transition: transform 0.3s ease;
 }
 
 .image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+	width: 100%;
+	aspect-ratio: 1/1;
+	height: auto;
 }
 
-.read {
-  display: inline-block;
-  margin-top: 10px;
-  color: white;
-  background-color: black;
-  cursor: pointer;
-  border: solid;
-  border-radius: 5px;
-  padding: 5px;
-  border-color: black;
+.card:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+	background-color: white;
+	
+}
+
+.recipeButton {
+	display: inline-block;
+	margin-top: 10px;
+	color: white;
+	background-color: black;
+	cursor: pointer;
+	border: solid;
+	border-radius: 5px;
+	padding: 5px;
+	border-color: black;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-} 
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
 
 .gridTitle {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+	font-size: 3rem;
+	font-weight: bold;
+	margin-bottom: 20px;
 }

@@ -48,7 +48,6 @@
 
 
 .navbar {
-  
   display: flex;
   background-color: white;
   justify-content: space-between; /* This pushes .links left and .search right */
@@ -61,7 +60,6 @@
   margin-right: 5px;
   justify-content: end;
 }
-
 
 /*Main */
 .main {

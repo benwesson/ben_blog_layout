@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import AuthProvider from "../providers/AuthProvider";
 import styles from "./home.module.css";
-import Link from "next/link";
-import Image from "next/image";
 import "../globals.css";
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
