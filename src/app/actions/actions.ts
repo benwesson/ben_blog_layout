@@ -77,14 +77,12 @@ export async function getPostsByID(id: string) {
 	return posts;
 }
 
-
-
 export async function createPost(
 	title: string,
 	content: string,
 	category: string,
 	userEmail: string,
-	imageUrl?: string
+	imageUrl?: string,
 ) {
 	await prisma.post.create({
 		data: {
@@ -103,7 +101,7 @@ export async function createComment(
 	desc: string,
 	associatedPostId: string,
 	userEmail: string,
-	profilePic: string
+	profilePic: string,
 ) {
 	await prisma.comment.create({
 		data: {

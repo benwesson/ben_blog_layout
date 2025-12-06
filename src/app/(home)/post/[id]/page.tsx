@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import styles from "./post.module.css";
 import AddComment from "@/components/addComment/addComment";
@@ -19,7 +18,10 @@ export default async function SinglePage({ params }: PageProps) {
 	const [post] = posts;
 
 	return (
-		<div className={styles.container} aria-label={`Recipe details for ${post?.title}`}>
+		<div
+			className={styles.container}
+			aria-label={`Recipe details for ${post?.title}`}
+		>
 			{post?.img && (
 				<Image
 					className={styles.image}
@@ -33,7 +35,6 @@ export default async function SinglePage({ params }: PageProps) {
 			<p>Author: {post.userEmail}</p>
 			<p>Category: {post?.category}</p>
 			<p>Created At: {new Date(post.createdAt).toLocaleDateString()}</p>
-			
 
 			<p>{post?.content}</p>
 			<h1>Comments</h1>

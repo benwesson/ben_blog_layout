@@ -32,10 +32,7 @@ export default function LoginPage() {
 				<h2 className={styles.text}>
 					To write a post or leave a comment, please sign in.
 				</h2>
-				<div
-					className={styles.socialButton}
-					onClick={() => signIn("google")}
-				>
+				<div className={styles.socialButton} onClick={() => signIn("google")}>
 					Sign in with Google
 				</div>
 				<div className={styles.socialButton}>Sign in with Github</div>

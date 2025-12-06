@@ -103,9 +103,7 @@ export default function Post() {
 					<option value="Snacks">Snacks</option>
 				</select>
 			</div>
-			
 
-			
 			<div className={styles.textareaContainer}>
 				<textarea
 					className={styles.textarea}
@@ -114,10 +112,7 @@ export default function Post() {
 					value={content}
 					onChange={(e) => setContent(e.target.value)}
 				/>
-				<button
-					className={styles.aiButton}
-					onClick={handleAiButtonClick}
-				>
+				<button className={styles.aiButton} onClick={handleAiButtonClick}>
 					<FaGoogle />
 				</button>
 				<ImageUpload onImageAdded={handleOnImageAdded} />

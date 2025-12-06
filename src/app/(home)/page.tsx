@@ -12,7 +12,7 @@ export default async function Home() {
 	} else {
 		return (
 			<div>
-				<Featured  posts={posts as Post } />
+				<Featured posts={posts as Post} />
 				<Categories />
 				<Grid posts={posts as Post} />
 			</div>

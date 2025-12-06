@@ -43,8 +43,7 @@ export default async function Grid({ posts }: { posts: Post }) {
 						<div>Category: {post.category}</div>
 
 						<div>
-							Created At:{" "}
-							{new Date(post.createdAt).toLocaleDateString()}
+							Created At: {new Date(post.createdAt).toLocaleDateString()}
 						</div>
 
 						<hr />

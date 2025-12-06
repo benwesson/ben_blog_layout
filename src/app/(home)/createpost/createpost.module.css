@@ -11,7 +11,6 @@
 	margin-bottom: 20px;
 	align-items: center;
 	flex-wrap: wrap;
-	
 }
 .titleInput {
 	width: 40%;
@@ -19,7 +18,6 @@
 	font-size: 1.5rem;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	
 }
 
 .select {
@@ -38,7 +36,6 @@
 	border: none;
 	font-weight: bold;
 	cursor: pointer;
-	
 }
 
 .textareaContainer {

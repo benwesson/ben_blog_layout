@@ -38,7 +38,7 @@ export default function Search() {
 
 	const debouncedSearch = useDebounce(async (query: string) => {
 		if (query) {
-			console.log(loading,"Searching for:", query);
+			console.log(loading, "Searching for:", query);
 			setLoading(true);
 			const results = await searchPosts(query);
 			setLoading(false);
@@ -78,9 +78,7 @@ export default function Search() {
 									</Link>
 								))
 							) : (
-								<span className={styles.searchResult}>
-									No results found.
-								</span>
+								<span className={styles.searchResult}>No results found.</span>
 							)}
 						</div>
 					</div>

@@ -38,9 +38,11 @@
 }
 
 .hamburgerMenu {
+	z-index: 100;
+	width: 100%;
 	background-color: white;
 	top: 100px;
-	position: sticky;
+	position: absolute;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -136,6 +138,9 @@
 	.header {
 		height: 150px;
 	}
+	.hamburgerMenu {
+		top: 150px;
+	}
 }
 
 /* Show on tablet/desktop */
@@ -171,5 +176,3 @@
 		font-size: 7.5rem;
 	}
 }
-
-

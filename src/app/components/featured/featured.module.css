@@ -1,35 +1,32 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    justify-content: center;
-	
-    margin-bottom: 20px;
- 	border-radius: 4px; 
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	justify-content: center;
+
+	margin-bottom: 20px;
+	border-radius: 4px;
 	gap: 16px;
 }
 
-.card{
+.card {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-    font-size: 1rem;
-    text-align: start;
-	
-    
-} 
+	font-size: 1rem;
+	text-align: start;
+}
 
 .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .image {
-    width: 100%;
-	
+	width: 100%;
+
 	object-fit: cover;
-      
-} 
+}
 
 .read {
 	display: inline-block;
@@ -46,7 +43,7 @@
 
 .featuredTitle {
 	margin-top: 20px;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+	font-size: 3rem;
+	font-weight: bold;
+	margin-bottom: 20px;
 }

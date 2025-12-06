@@ -35,12 +35,7 @@ export default function ImageUpload({
 			</button>
 			<div className={styles.imagePreview}>
 				{image && (
-					<Image
-						src={image}
-						width={300}
-						height={300}
-						alt="Uploaded image"
-					/>
+					<Image src={image} width={300} height={300} alt="Uploaded image" />
 				)}
 			</div>
 		</>
