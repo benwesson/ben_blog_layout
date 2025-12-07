@@ -1,6 +1,6 @@
 import Grid from "@/components/grid/grid";
 import { getPostsByCategory } from "@/actions/actions";
-import { Post } from "@/actions/actions";
+import type { Post } from "@/actions/actions";
 
 type PageProps = {
 	params: {

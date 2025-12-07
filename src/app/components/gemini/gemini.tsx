@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { generateGeminiResponse } from "@/actions/actions"; // Assuming you have a function to handle Gemini API calls
+import { generateGeminiResponse } from "@/actions/geminiAction"; // Assuming you have a function to handle Gemini API calls
 export default function Gemini() {
 	const [prompt, setPrompt] = useState("");
 	const [response, setResponse] = useState("");
