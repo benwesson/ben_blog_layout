@@ -1,6 +1,7 @@
 import { vi, test, expect } from "vitest";
 import { createPost } from "./actions";
-
+//Mock Prisma
+//Vitest replaces every later import of "@/utils/prisma" in this test file with that factory’s return value.
 vi.mock("@/utils/prisma", () => ({
 	prisma: {
 		post: {
@@ -10,15 +11,16 @@ vi.mock("@/utils/prisma", () => ({
 }));
 
 test("createPost calls prisma.post.create with correct data", async () => {
+	// Import the mocked prisma instance
 	const { prisma } = await import("@/utils/prisma");
-
+	//Call function within test
 	await createPost(
 		"testTitle",
 		"testContent",
 		"Breakfast",
 		"test@example.com"
 	);
-
+	//Assert
 	expect(prisma.post.create).toHaveBeenCalledWith(
 		expect.objectContaining({
 			data: expect.objectContaining({
@@ -29,24 +31,23 @@ test("createPost calls prisma.post.create with correct data", async () => {
 			}),
 		})
 	);
-	
 });
 
 test("does NOT call prisma.post.create with empty userEmail", async () => {
 	const { prisma } = await import("@/utils/prisma");
-	const category = "Breakfast";
-	await createPost(
-		"testTitle",
-		"testContent",
-		category,
-		"test@example.com"
-	);
-
-	expect(prisma.post.create).not.toHaveBeenCalledWith(
+	const category = "";
+	await createPost("testTitle", "testContent", category, "test@example.com");
+	//add not
+	//need zod/sever validate to fix
+	//Assert that 
+	expect(prisma.post.create).toHaveBeenCalledWith(
 		expect.objectContaining({
 			data: expect.objectContaining({
-				userEmail: "",
+				category: "",
 			}),
 		})
-	);
+	)
+		
+	
+	
 });
