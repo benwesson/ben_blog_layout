@@ -1,17 +1,17 @@
 .button {
-	margin-top: 10px;
-	padding: 8px 16px;
-	background-color: black;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	width: fit-content;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
 }
 
 .imagePreview {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
 }

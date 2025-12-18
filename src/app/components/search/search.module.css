@@ -1,12 +1,15 @@
 .search {
-	margin-right: 5px;
-	justify-content: end;
-	position: relative;
+    margin-right: 5px;
+    justify-content: end;
+    position: relative;
+    width: fit-content;
 }
 
-.search > input {
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	width: 200px; /* Adjust width as needed */
+.searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 200px;
+    width: 100%;
+    box-sizing: border-box;
 }

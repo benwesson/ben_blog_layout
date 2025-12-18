@@ -6,16 +6,16 @@ import { getRecentPosts } from "@/actions/actions";
 import type { Post } from "@/actions/actions";
 
 export default async function Home() {
-	const posts = await getRecentPosts();
-	if (!posts) {
-		return <div>Loading...</div>;
-	} else {
-		return (
-			<div>
-				<Featured posts={posts as Post} />
-				<Categories />
-				<Grid posts={posts as Post} />
-			</div>
-		);
-	}
+    const posts = await getRecentPosts();
+    if (!posts) {
+        return <div>Loading...</div>;
+    } else {
+        return (
+            <div>
+                <Featured posts={posts as Post} /> 
+                {/* <Categories />
+                <Grid posts={posts as Post} /> */}
+            </div>
+        );
+    }
 }

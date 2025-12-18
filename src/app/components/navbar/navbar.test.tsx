@@ -11,8 +11,7 @@ vi.mock("next-auth/react", () => ({
     signOut: vi.fn(),
 }));
 test("renders Navbar with title", () => {
-	render(<Navbar />);
-	const titleElement = screen.getByLabelText("Page Title: Ben's Eats");
-	expect(titleElement).toBeInTheDocument();
-
+    render(<Navbar />);
+    const titleElement = screen.getByLabelText("Page Title: Ben's Eats");
+    expect(titleElement).toBeInTheDocument();
 });

@@ -7,24 +7,24 @@ import { useSession } from "next-auth/react";
 import styles from "./authLinks.module.css";
 
 vi.mock("next-auth/react", () => ({
-	useSession: vi.fn(),
-	signOut: vi.fn(),
+    useSession: vi.fn(),
+    signOut: vi.fn(),
 }));
 
 test("renders Login link when unauthenticated", () => {
-	useSession.mockReturnValue({ status: "unauthenticated" });
+    useSession.mockReturnValue({ status: "unauthenticated" });
 
-	render(<AuthLinks />);
+    render(<AuthLinks />);
 
-	const link = screen.getByRole("link", { name: /login/i });
-	expect(link.closest("a")).toHaveClass(styles.loginLink);
+    const link = screen.getByRole("link", { name: /login/i });
+    expect(link.closest("a")).toHaveClass(styles.loginLink);
 });
 
 test("renders Logout div when authenticated", () => {
-	useSession.mockReturnValue({ status: "authenticated" });
-	
-	render(<AuthLinks />);
+    useSession.mockReturnValue({ status: "authenticated" });
 
-	const logoutDiv = screen.getByText(/logout/i);
-	expect(logoutDiv).toHaveClass(styles.logoutLink);
+    render(<AuthLinks />);
+
+    const logoutDiv = screen.getByText(/logout/i);
+    expect(logoutDiv).toHaveClass(styles.logoutLink);
 });
