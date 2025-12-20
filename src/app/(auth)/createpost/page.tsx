@@ -6,8 +6,9 @@ import { FaGoogle } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import ImageUpload from "@/components/imageUpload/imageUpload";
-import { createPost, generateGeminiResponse } from "@/actions/actions";
+import ImageUpload from "@/components/imageUpload/imageUpload"
+import { createPost } from "@/actions/actions";
+import {  generateGeminiResponse } from "@/actions/geminiAction";
 
 import { uploadImage } from "@/supabase/storage/client";
 import styles from "./createpost.module.css";
